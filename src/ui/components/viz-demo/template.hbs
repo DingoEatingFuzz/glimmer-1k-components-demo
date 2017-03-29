@@ -1,5 +1,7 @@
-<div class="demo">
-  {{#each points key="@index" as |point|}}
-    <viz-point @x={{point.x}} @y={{point.y}} @color={{point.color}} />
-  {{/each}}
-</div>
+<svg class="demo">
+  <g>
+    {{#each points key="@index" as |point|}}
+      <viz-point @x={{point.x}} @y={{point.y}} @color={{point.color}} />
+    {{/each}}
+  </g>
+</svg>
