@@ -36,13 +36,22 @@ export default class VizDemo extends Component {
       this.layout = (this.layout + 1) % LAYOUT_ORDER.length;
     }
 
+    // Clamp the linear interpolation at 80% for a pause at each finished layout state
     const pct = Math.min(1, this.step / (this.numSteps * 0.8));
+
     const currentLayout = LAYOUT_ORDER[this.layout];
     const nextLayout = LAYOUT_ORDER[(this.layout + 1) % LAYOUT_ORDER.length];
+
+    // Keep these redundant computations out of the loop
+    const pxProp = xForLayout(currentLayout);
+    const nxProp = xForLayout(nextLayout);
+    const pyProp = yForLayout(currentLayout);
+    const nyProp = yForLayout(nextLayout);
+
     this.points = this.points.map(point => {
       const newPoint = Object.assign({}, point);
-      newPoint.x = lerp(newPoint, pct, xForLayout(currentLayout), xForLayout(nextLayout));
-      newPoint.y = lerp(newPoint, pct, yForLayout(currentLayout), yForLayout(nextLayout));
+      newPoint.x = lerp(newPoint, pct, pxProp, nxProp);
+      newPoint.y = lerp(newPoint, pct, pyProp, nyProp);
       return newPoint;
     });
 
