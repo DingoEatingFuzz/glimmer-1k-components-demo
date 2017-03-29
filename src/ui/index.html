@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Hello Glimmer</title>
+    <title>Glimmer 1k+ Components Demo</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -17,7 +17,20 @@
     {{content-for "body"}}
 
     <div id="app"></div>
+    <div id="stats"></div>
     <script src="{{rootURL}}app.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/stats.js/r16/Stats.js"></script>
+    <script>
+      var stats = new Stats();
+      stats.showPanel(0);
+      document.getElementById('stats').appendChild(stats.domElement);
+      stats.begin();
+      function animate() {
+        stats.update();
+        requestAnimationFrame(animate);
+      }
+      requestAnimationFrame(animate);
+    </script>
 
     {{content-for "body-footer"}}
   </body>

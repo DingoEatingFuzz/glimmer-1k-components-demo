@@ -1,3 +1,55 @@
-h1 {
-  color: #444;
+html, body {
+  padding:0;
+  margin:0;
+  font-family:sans-serif;
+  width:100%;
+  height:100%;
+}
+
+.demo {
+  overflow-x:hidden;
+  position:relative;
+}
+
+.point {
+  width:5px;
+  height:5px;
+  background:black;
+  position:absolute;
+}
+
+.controls {
+  position:fixed;
+  top:0;
+  width:100%;
+  padding:15px;
+  background:#333;
+  border-bottom:1px solid #666;
+  display:flex;
+  justify-content:center;
+  color:white;
+
+  input {
+    margin:0 10px;
+    width:300px;
+  }
+}
+
+#stats {
+  position:fixed;
+  top:0;
+  right:0;
+}
+
+.about {
+  position:fixed;
+  bottom:0;
+  width:100%;
+  padding:10px;
+}
+
+#app, .app-wrapper, .demo {
+  width:100%;
+  height:100%;
+  overflow:hidden;
 }

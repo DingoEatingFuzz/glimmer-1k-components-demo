@@ -1,3 +1,13 @@
-<div>
-  <h1>Welcome to Glimmer!</h1>
+<div class="app-wrapper">
+  <viz-demo @count={{numPoints}} />
+  <div class="controls">
+    # Points <input type="range" min=10 max=10000 value={{numPoints}} onchange={{action updateCount}}/>
+    {{numPoints}}
+  </div>
+  <div class="about">
+    Demo by <a href="http://mlange.io">Michael Lange</a>,
+    inspired by <a href="https://bocoup.com/blog/smoothly-animate-thousands-of-points-with-html5-canvas-and-d3">Peter Beshai</a>
+    and <a href="http://rickyreusser.com/smoothly-animating-points-with-regl/">Ricky Reusser</a>.
+    Fork and stuff on <a href="">Github</a>
+  </div>
 </div>
